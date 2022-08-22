@@ -6,7 +6,8 @@ export const getData = createAsyncThunk(
     async ()=>{
         const response = await fetch('https://covidnigeria.herokuapp.com/api');
         if (response.ok){
-            const data = await response.json();
+            const data = await response.data.data.json();
+            console.log(data)
             return { data }
         }
     }
