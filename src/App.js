@@ -1,6 +1,7 @@
 import React, { useEffect, useState} from "react";
 import { useSelector } from 'react-redux'
 import axios from "axios";
+import Tabledata from "./components/Tabledata";
 
 function App() {
   const [data, setData]= useState([])
@@ -18,24 +19,15 @@ function App() {
   //       discharged: 256518,
   //         death: 3147,
   return (
-    <div className="App">   
-      <h1>Total Samples Tested: {gendata.totalSamplesTested}</h1>
-      <h2>Total Confirmed Cases: {gendata.totalConfirmedCases}</h2>
+    <div className="App">
+      <h1>Nigeria's Covid-19 data</h1>
+      <h3>Total Samples Tested: {gendata.totalSamplesTested}</h3>
+      <h3>Total Confirmed Cases: {gendata.totalConfirmedCases}</h3>
       <h3>Total Active Cases: {gendata.totalActiveCases}</h3>
       <p>Discharged: {gendata.discharged}</p>
       <p>Death: {gendata.death}</p>
       
-      {
-       data.map((item)=>{
-        return <div key={item._id}>
-          <h1>State: {item.state}</h1>
-          <p>Confirmed Cases: {item.confirmedCases}</p>
-          <p>Deaths: {item.deaths}</p>
-          <p>Cases On Admission: {item.casesOnAdmission}</p>
-          <p>Discharged: {item.discharged}</p>
-          </div>
-       })
-      }
+      <Tabledata data={data} />
     </div>
   );
 }

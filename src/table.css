@@ -6,8 +6,15 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.App{
+  text-align: center;
+}
+table{
+text-align: center;
+border: 1px solid blue;
+margin: 10px auto;
+}
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+td{
+  border: 2px solid blue;
 }

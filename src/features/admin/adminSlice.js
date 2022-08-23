@@ -1,15 +1,17 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-
+import axios from "axios";
 
 export const getData = createAsyncThunk(
     'data/getData',
     async ()=>{
-        const response = await fetch('https://covidnigeria.herokuapp.com/api');
-        if (response.ok){
-            const data = await response.data.data.json();
-            console.log(data)
-            return { data }
-        }
+        axios.get("https://covidnigeria.herokuapp.com/api")
+            .then(response => response.data.data.states)
+        // const response = await fetch('https://covidnigeria.herokuapp.com/api');
+        // if (response.ok){
+        //     const data = await response.data.data.json();
+        //     console.log(data)
+        //     return { data }
+        // }
     }
 )
 
